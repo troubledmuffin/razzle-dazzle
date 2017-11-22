@@ -11,7 +11,7 @@ for word in words:
         if word.startswith(capital):
             i += 1
 percentage = i / len(words) * 100
-print("Процент слов, начинающихся с загланой буквы, равен", percentage)
+print("Процент слов, начинающихся с заглавной буквы, равен", percentage)
 
             
         
