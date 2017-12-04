@@ -5,9 +5,10 @@ for x in range(7):
     else:
         result=(" ")
 with open("numbers.txt", "w", encoding="utf-8") as f:
-    lines = result.split()
-    for line in lines:
-        f.writelines(lines)
+    for y in result:
+        lines = list(result)
+        for line in lines:
+            f.writelines(lines)
             
           
    
