@@ -1,22 +1,12 @@
 
-#def fem_noun():
- #   f_nouns = ['phase','tintamarre','décomposition','mémoire', 'bombe', 'mélodie', 'violence', 'folie']
- #   result = 'la' + ' ' + random.choice(f_nouns)
- #   return result
- # f.replace(" ", "")
- # with open ('verbs.txt', encoding = 'utf-8') as f:
- #       verbs = f.readlines()
 import random
 def masc_noun():
     with open ('m_nouns.txt', encoding = 'utf-8') as f:
         m_nouns = f.readlines()
-#        for i in m_nouns:
-#            i = i.replace(" ", "")
     return 'le' + ' ' + random.choice(m_nouns)
 def plur_noun():
     with open ('p_nouns.txt', encoding = 'utf-8') as f:
         p_nouns = f.readlines()
-   #     f = f.replace(" ", "")
     return 'les' + ' ' + random.choice(p_nouns)
 def sing_adj(noun):
     with open ('s_adj.txt', encoding = 'utf-8') as f:
