@@ -1,4 +1,5 @@
 
+
 import random
 def masc_noun():
     with open ('m_nouns.txt', encoding = 'utf-8') as f:
@@ -20,16 +21,19 @@ def plur_adj(noun):
     return result
 def verb (suj, obj):
     with open ('verbs.txt', encoding = 'utf-8') as f:
- #       f = f.replace(" ", "")
         verbs = f.readlines()
     result = suj + ' ' + random.choice(verbs) + ' ' + obj
+    return result
+def f_verb (suj, obj):
+    with open ('verbs_fut.txt', encoding = 'utf-8') as f:
+        verbs_fut = f.readlines()
+    result = suj + ' ' + random.choice(verbs_fut) + ' ' + obj
     return result
 def neg_verb (suj, obj):
     with open ('verbs.txt', encoding = 'utf-8') as f:
         verbs = f.readlines()
     random_verb = random.choice(verbs)
     vowels = ['a','o','e','é','i']
-    
     if random_verb[0] in vowels:
         result = suj + ' ' + "n'" + random_verb + ' ' + 'pas' + ' ' + obj
     else:
@@ -39,7 +43,7 @@ def rand_sent_pos():
     result = verb(masc_noun(),plur_adj(plur_noun())) + '.'
     return result
 def rand_sent_if():
-    result = verb(masc_noun(),plur_adj(plur_noun())) + ', ' + 'si' + ' ' + neg_verb(masc_noun(),plur_adj(plur_noun()))  + '.'
+    result = f_verb(masc_noun(),plur_adj(plur_noun())) + ', ' + 'si' + ' ' + neg_verb(masc_noun(),plur_adj(plur_noun()))  + '.'
     return result
 def rand_sent_neg():
     result = neg_verb(masc_noun(),plur_adj(plur_noun())) + '.'
@@ -47,12 +51,16 @@ def rand_sent_neg():
 def rand_sent_interro():
     result = 'est-ce que' + ' ' + verb(masc_noun(),plur_adj(plur_noun())) + '?'
     return result
-def rand_sent_imper():
+def rand_sent_imper_p():
     result = verb("",plur_noun()) +  '!'
     result = result[1:]
     return result
+def rand_sent_imper_n():
+    result = neg_verb("",plur_noun()) +  '!'
+    result = result[1:]
+    return result
 def abs_rand():
-    sent = random.choice([1,2,3,4,5])
+    sent = random.choice([1,2,3,4,5,6])
     if sent == 1:
         return rand_sent_pos()
     elif sent == 2:
@@ -60,9 +68,11 @@ def abs_rand():
     elif sent == 3:
         return rand_sent_interro()
     elif sent == 4:
-        return rand_sent_imper()
+        return rand_sent_imper_p()
     elif sent == 5:
         return rand_sent_if()
+    elif sent == 6:
+        return rand_sent_imper_n()
 for i in range(5):
     phrase = abs_rand()
     phrase = phrase.capitalize()
