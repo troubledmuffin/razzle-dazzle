@@ -8,3 +8,10 @@ iguanes
 cyclopes
 crabes
 baleines
+chats
+filles
+oiseaux
+gateaux
+jumeaux
+enfants
+professeurs
