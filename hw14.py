@@ -6,23 +6,19 @@ text = text.replace('\xa0', '')
 phrases  = text.split('. ')
 print (phrases)
 for phrase in phrases:
-    a = 0
+    b = []
     symbols = """(-),:;"'—»«"""
     for s in symbols:
         phrase = phrase.replace(s, '')
     phrase = phrase.split()
-##lensum = [a += len(i) for i in words]
     for i in phrase:
-        print(i)
-        print(len(i))
-        a += len(i)
-        print(a)
+        b.append(len(i))
+    a = sum(b)
     avrg = a / len(phrase)
     if len(phrase) > 10:
-        print('Это предложение со словами длины {}'.format(avrg))
+        print('Это предложение со словами длины {:01.2f}'.format(avrg))
     else:
         print('А это слишком короткое предложение!')
-
 
     
     
