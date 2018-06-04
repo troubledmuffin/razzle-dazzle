@@ -9,17 +9,19 @@ for phrase in phrases:
     symbols = """(-),:;"'—»«"""
     for s in symbols:
         phrase = phrase.replace(s, '')
+    phrase = phrase.split()
 ##lensum = [a += len(i) for i in words]
     for i in phrase:
         print(i)
         print(len(i))
     a += len(i)
     print(a)
-    avrg = [a / len(phrase) for phrase in phrases]
+    avrg = [a / len(phrase)]
     if len(phrase) > 10:
         print('Это предложение со словами длины {}'.format(avrg))
     else:
         print('А это слишком корткое предложение!')
+
 
     
     
